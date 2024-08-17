@@ -1,149 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>meow meow</title>
-    <link rel="icon" href="image.png" type="image/png">
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-K2FN2HBJ');</script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Google Analytics (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HG49ZXXP6K"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-HG49ZXXP6K');
-    </script>
-    <!-- End Google Analytics -->
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            color: #333;
-            overflow: hidden;
-            text-align: center;
-            position: relative;
-        }
-
-        .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        .container {
-            z-index: 1;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            border: 2px solid #5b0e00;
-            animation: containerFadeIn 1.5s ease-in-out;
-            max-width: 90%;
-            margin: auto;
-        }
-
-        @keyframes containerFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin: 0;
-            color: #010000;
-            animation: textWave 3s ease-in-out infinite;
-        }
-
-        @keyframes textWave {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-5px);
-            }
-        }
-
-        p {
-            font-size: 1.2em;
-            margin: 15px 0;
-            color: #555;
-            animation: fadeInUp 1s ease-in-out 0.5s;
-        }
-
-        .cta-button {
-            padding: 12px 25px;
-            background-color: #000000;
-            color: #ffffff;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1.1em;
-            text-decoration: none;
-            animation: fadeInUp 1s ease-in-out 1s;
-            display: inline-block;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            margin: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .cta-button:hover {
-            background-color: #0b0504;
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #1e1e1e;
+      text-align: center;
+      position: relative;
+      color: #ffffff;
+    }
+    h1 {
+      font-size: 64px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      display: inline-block;
+      text-shadow: 0 0 15px #ff4444, 0 0 30px #ff4444, 0 0 45px #ff4444, 0 0 60px #ff4444;
+    }
+    h1:hover {
+      color: #ff4444;
+    }
+    .typed-cursor {
+      font-size: 64px;
+      font-weight: bold;
+      color: #ffffff;
+      opacity: 1;
+      animation: blink 0.7s infinite;
+      position: relative;
+      top: -10px;
+      text-shadow: 0 0 15px #ff4444, 0 0 30px #ff4444, 0 0 45px #ff4444, 0 0 60px #ff4444;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .discord-link {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 16px;
+      color: #7289da;
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 2px solid #7289da;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .discord-link:hover {
+      background-color: #7289da;
+      color: #fff;
+    }
+    .clock {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 18px;
+      color: #ffffff;
+      background-color: rgba(255, 68, 68, 0.2);
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: 2px solid #ff4444;
+      box-shadow: 0 0 15px #ff4444, 0 0 30px #ff4444;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-shadow: 0 0 15px #ff4444, 0 0 30px #ff4444;
+    }
+  </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2FN2HBJ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
-    <video class="video-background" src="anima.mp4" autoplay muted loop></video>
-    <div class="container">
-        <h1>Hello there!</h1>
-        <p>All my conducted tests will be placed here.</p>
-        <a href="https://discordapp.com/users/852629822727651399" class="cta-button" target="_blank">My Discord!</a>
-    </div>
+<div>
+  <h1 id="typed"></h1>
+</div>
+
+<div class="clock" id="clock"></div>
+
+<a href="https://discordapp.com/users/852629822727651399" class="discord-link" target="_blank">Join us on Discord!</a>
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+  var greetings = [
+    'Hello!', 'Kamusta!', 'Hola!', 'Bonjour!', 'Guten Tag!', 'Ciao!', 
+    'こんにちは!', '안녕하세요!', 'Привет!', 'Salam!', 'Merhaba!', 
+    'Olá!', 'Sawubona!', 'Namaste!', 'Halo!', 'God dag!', 'வணக்கம்!', 
+    'שלום!', 'مرحبا!', 'Xin chào!', 'Sveiki!', 'Sziasztok!', 'გამარჯობა!',
+    'Bok!', 'Selamat!', 'Tere!', 'Labas!', 'Zdravo!', 'नमस्कार!', 'Hej!', 
+    'Salve!', 'Բարեւ!', 'Ahoj!', 'Hallo!', 'Здраво!', 'សួស្តី!', 'Tashi Delek!', 
+    'Kaixo!', 'Mingalaba!', 'Yassou!', 'Sannu!', 'Molo!', 'Aloha!', 'Moni!', 
+    'Chào bạn!', 'Habari!', 'Konnichiwa!', 'Sawadee!', 'Szia!', 'Cześć!', 'سلام!', 
+    'Dia duit!', 'Salut!', 'Shalom!', 'Ni hao!', 'Zdravei!', 'Привет!', 'Merhba!', 
+    'Γειά σου!', 'Hola!', 'Pozdravljeni!', 'Ciao!', 'Bula!', 'Terve!', 'Salut!'
+  ];
+  
+  var typed = new Typed('#typed', {
+    strings: greetings,
+    typeSpeed: 100,
+    backSpeed: 50,
+    loop: true,
+    showCursor: true,
+    cursorChar: '|',
+    autoInsertCss: true
+  });
+
+  function updateTime() {
+    const clockElement = document.getElementById('clock');
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+  }
+
+  setInterval(updateTime, 1000);
+  updateTime();
+</script>
+
 </body>
 </html>

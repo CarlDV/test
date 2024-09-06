@@ -109,8 +109,8 @@
 </div>
 
 <script>
-    function createFlyingElements() {
-        for (let i = 0; i < 100; i++) {
+    function createFlyingElements(count) {
+        for (let i = 0; i < count; i++) {
             let element = document.createElement('div');
             element.classList.add('element');
             
@@ -143,7 +143,8 @@
             el.remove();
         });
 
-        setInterval(createInfiniteExplosion, 20);
+        createFlyingElements(100000);
+        setTimeout(explodeElements, 50);
     }
 
     function createInfiniteExplosion() {
@@ -160,10 +161,10 @@
 
         setTimeout(() => {
             element.remove();
-        }, 10000);
+        }, 100000);
     }
 
-    createFlyingElements();
+    createFlyingElements(100);
 
     setTimeout(explodeElements, 5000);
 </script>

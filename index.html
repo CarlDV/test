@@ -1,124 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #1e1e1e;
-      text-align: center;
-      position: relative;
-      color: #ffffff;
-    }
-    h1 {
-      font-size: 64px;
-      margin-bottom: 20px;
-      font-weight: bold;
-      transition: color 0.3s ease;
-      display: inline-block;    }
-    h1:hover {
-      color: #02a102;
-    }
-    .typed-cursor {
-      font-size: 64px;
-      font-weight: bold;
-      color: #ffffff;
-      opacity: 1;
-      animation: blink 0.7s infinite;
-      position: relative;
-      top: -10px;
-      text-shadow: 0 0 15px #000000, 0 0 30px #000000, 0 0 45px #000000, 0 0 60px #ff4444;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    .discord-link {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      font-size: 16px;
-      color: #7289da;
-      text-decoration: none;
-      padding: 10px 20px;
-      border: 2px solid #7289da;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    .discord-link:hover {
-      background-color: #7289da;
-      color: #fff;
-    }
-    .clock {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 18px;
-      color: #ffffff;
-      background-color: rgba(255, 68, 68, 0.2);
-      padding: 10px 20px;
-      border-radius: 5px;
-      border: 2px solid #000000;
-      box-shadow: 0 0 15px #fcfcfc, 0 0 30px #ff4444;
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-shadow: 0 0 15px #ff4444, 0 0 30px #ff4444;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meow boom</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .blackhole {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.7);
+        }
+
+        .ring {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            animation: spin 0.5s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .element, .exploding-element, .infinite-element {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        .element {
+            animation: flyToCenter 3s ease-in-out forwards;
+        }
+
+        .exploding-element {
+            animation: explode 10s linear forwards;
+            opacity: 1;
+        }
+
+        .infinite-element {
+            animation: infiniteExplosion 10s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes flyToCenter {
+            0% {
+                transform: translate(var(--x), var(--y));
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes explode {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--x), var(--y)) scale(3);
+            }
+        }
+
+        @keyframes infiniteExplosion {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--x), var(--y)) scale(2.5);
+            }
+        }
+    </style>
 </head>
 <body>
 
-<div>
-  <h1 id="typed"></h1>
+<div class="container">
+    <div class="blackhole"></div>
+    <div class="ring"></div>
 </div>
 
-<div class="clock" id="clock"></div>
-
-<a href="https://discordapp.com/users/852629822727651399" class="discord-link" target="_blank">My Discord!</a>
-
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script>
-  var greetings = [
-    'Hello!', 'Kumusta!', 'Hola!', 'Bonjour!', 'Guten Tag!', 'Ciao!', 
-    'こんにちは!', '안녕하세요!', 'Привет!', 'Salam!', 'Merhaba!', 
-    'Olá!', 'Sawubona!', 'Namaste!', 'Halo!', 'God dag!', 'வணக்கம்!', 
-    'שלום!', 'مرحبا!', 'Xin chào!', 'Sveiki!', 'Sziasztok!', 'გამარჯობა!',
-    'Bok!', 'Selamat!', 'Tere!', 'Labas!', 'Zdravo!', 'नमस्कार!', 'Hej!', 
-    'Salve!', 'Բարեւ!', 'Ahoj!', 'Hallo!', 'Здраво!', 'សួស្តី!', 'Tashi Delek!', 
-    'Kaixo!', 'Mingalaba!', 'Yassou!', 'Sannu!', 'Molo!', 'Aloha!', 'Moni!', 
-    'Chào bạn!', 'Habari!', 'Konnichiwa!', 'Sawadee!', 'Szia!', 'Cześć!', 'سلام!', 
-    'Dia duit!', 'Salut!', 'Shalom!', 'Ni hao!', 'Zdravei!', 'Привет!', 'Merhba!', 
-    'Γειά σου!', 'Hola!', 'Pozdravljeni!', 'Ciao!', 'Bula!', 'Terve!', 'Salut!'
-  ];
-  
-  var typed = new Typed('#typed', {
-    strings: greetings,
-    typeSpeed: 100,
-    backSpeed: 50,
-    loop: true,
-    showCursor: true,
-    cursorChar: '|',
-    autoInsertCss: true
-  });
+    function createFlyingElements() {
+        for (let i = 0; i < 100; i++) {
+            let element = document.createElement('div');
+            element.classList.add('element');
+            
+            let randomX = Math.floor(Math.random() * window.innerWidth) - window.innerWidth / 2;
+            let randomY = Math.floor(Math.random() * window.innerHeight) - window.innerHeight / 2;
+            
+            element.style.setProperty('--x', randomX + 'px');
+            element.style.setProperty('--y', randomY + 'px');
+            
+            document.body.appendChild(element);
+        }
+    }
 
-  function updateTime() {
-    const clockElement = document.getElementById('clock');
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-    clockElement.textContent = `${hours}:${minutes}:${seconds}`;
-  }
+    function explodeElements() {
+        const elements = document.querySelectorAll('.element');
+        elements.forEach(el => {
+            const explosionElement = document.createElement('div');
+            explosionElement.classList.add('exploding-element');
+            
+            let randomX = Math.floor(Math.random() * window.innerWidth * 2) - window.innerWidth;
+            let randomY = Math.floor(Math.random() * window.innerHeight * 2) - window.innerHeight;
+            
+            explosionElement.style.setProperty('--x', randomX + 'px');
+            explosionElement.style.setProperty('--y', randomY + 'px');
+            
+            explosionElement.style.left = el.style.left;
+            explosionElement.style.top = el.style.top;
+            
+            document.body.appendChild(explosionElement);
+            el.remove();
+        });
 
-  setInterval(updateTime, 1000);
-  updateTime();
+        setInterval(createInfiniteExplosion, 20);
+    }
+
+    function createInfiniteExplosion() {
+        let element = document.createElement('div');
+        element.classList.add('infinite-element');
+        
+        let randomX = Math.floor(Math.random() * window.innerWidth * 2) - window.innerWidth;
+        let randomY = Math.floor(Math.random() * window.innerHeight * 2) - window.innerHeight;
+        
+        element.style.setProperty('--x', randomX + 'px');
+        element.style.setProperty('--y', randomY + 'px');
+        
+        document.body.appendChild(element);
+
+        setTimeout(() => {
+            element.remove();
+        }, 10000);
+    }
+
+    createFlyingElements();
+
+    setTimeout(explodeElements, 5000);
 </script>
 
 </body>
